@@ -1,0 +1,13 @@
+<div class="search-page">
+    <app-header></app-header>
+    <div class="container">
+        <app-beer-list [listBeer]="beers"
+                       [modeOn]="ListBeerMode.BROWSE">
+        </app-beer-list>
+        <app-beer-search (foodPairedSearch)="OnFoodPairedSearch($event)"></app-beer-search>
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,9 @@
+<div class="favourite-page">
+    <app-header></app-header>
+    <div class="container">
+       <app-beer-list [listBeer]="allFavouriteBeer"
+                      [modeOn]="ListBeerMode.FAVOURITE">
+        </app-beer-list>
+       <app-beer-favourite></app-beer-favourite>
+    </div>
+</div>

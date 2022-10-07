@@ -1,0 +1,36 @@
+.check-container{
+    padding: 0;
+    margin: 0;
+    height: 35vh;
+    max-height: 35vh;
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #424a30;
+    color: antiquewhite;
+
+    .title-check{
+        margin-top: 0;
+        margin-bottom: 5px;;
+    }
+
+    img{
+        height:200px ;
+        width: 360px ;
+        margin-top: 25px;
+    }
+    
+    button{
+        background-color: #353b26;
+        margin-bottom: 5px;
+    }
+
+    .no-button:hover{
+        background-color:#1565C0 ;
+    }
+
+    .yes-button:hover{
+        background-color: #FF5252;
+    }
+}

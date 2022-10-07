@@ -1,0 +1,42 @@
+<div class="beerModal">
+
+    <div class="beer-image-container">
+        <img class="beer-image" src="{{data.image_url}}" alt="{{data.name}}">
+    </div>
+
+    <div class="description-beer-container">
+        <h1 class="beer-name">{{data.name}}</h1>
+        <p class="beer-tagline">{{data.tagline}}</p>
+        <div class="minor-beer-detail">
+            <p class="beer-volume-value">{{data.volume.value}}</p>
+            <p class="beer-volume-unit">{{data.volume.unit}}</p>
+            <p class="first-brewed-title">First Brewed:</p>
+            <p class="first-brewed-value">{{data.first_brewed}}</p>
+        </div>
+        <div class="beer-food-pairing">
+            <p class="title">Food Pairing :</p>
+            <p class="value">{{data.food_pairing}}</p>
+        </div> 
+
+        <div class="beer-description">
+            <p class="title">description :</p>
+            <p class="value">{{data.description}}</p>
+        </div> 
+
+        <div class="beer-creator"> 
+            <p class="title">Contributed by :</p>
+            <h4 class="value">{{data.contributed_by}}</h4>
+        </div>
+        <div class="beer-like-rate"> 
+            <app-rate-menu class="rate" [beerId]="data.id" *ngIf="modeModal == ListBeerMode.FAVOURITE" class="rate"></app-rate-menu>
+            <app-favourite-icon class="like" [beer]="data"></app-favourite-icon>
+        </div>  
+    </div>
+
+    <div class="close-button">
+        <mat-icon mat-button mat-dialog-close cdkFocusInitial fontIcon="close">close</mat-icon>
+    </div>
+        
+</div>
+
+

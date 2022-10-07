@@ -1,0 +1,132 @@
+.beerModal{
+    margin:0 ;
+    padding:24px ;
+    width: 50vw;
+    height: 60vh;
+    max-height: 60vh;
+    background-color: #353b26;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.close-button{
+    align-self: flex-start;
+    color: antiquewhite;
+    margin: 0;
+    padding: 0;
+    height: 24px;
+    max-height: fit-content;
+}
+
+.close-button:hover{
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: #282c1c;
+    margin: 0;
+    padding: 0;
+}
+
+.beer-image-container{
+    align-self: flex-start;
+    padding: 0;
+    margin: 0;
+    width: 20vw ;
+    height: 40vh;
+    max-height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.beer-image{
+    width: 150px;
+    height:540px;
+}
+
+.description-beer-container{
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    color: antiquewhite;
+    width:40vw ;
+    height: 30vh ;
+    max-width: 40vw;
+    max-height: 30vh;
+
+    .beer-name{
+       margin-bottom: 5px; 
+    }
+
+    .beer-tagline{
+        padding: 0;
+        margin: 0;
+        color: #b19a27;
+        font-style: italic;
+        margin-bottom: 20px;
+    }
+
+    .minor-beer-detail{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .beer-volume-value{
+            margin-right: 5px;
+        }
+
+        .beer-volume-unit{
+            margin-right: 15px;
+        }
+
+        .first-brewed-title{
+            margin-right: 5px;
+        }
+
+
+    }
+
+    .beer-food-pairing{
+        .title{
+            text-decoration: underline;
+            margin-bottom: 0;
+        }
+
+        .value{
+            margin-top: 3px;
+        }
+    }
+
+    .beer-description{
+        .title{
+            text-decoration: underline;
+            margin-bottom: 0;
+        }
+
+        .value{
+            margin-top: 3px;
+        }
+    }
+
+    .beer-creator{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .title{
+            font-style: italic ,bold;
+            margin-right: 5px;
+        }
+    }
+
+    .beer-like-rate{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        
+        .like{
+            color: antiquewhite;
+            margin-left: auto;
+        }
+    }
+}

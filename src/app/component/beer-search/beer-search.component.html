@@ -1,0 +1,20 @@
+<div class="search-beer-container">
+    <mat-expansion-panel class="panel-container"
+                         (opened)="onChangeStatePanel(true)"
+                         (closed)="onChangeStatePanel(false)">
+        <mat-expansion-panel-header class="header-search-panel">
+            <mat-panel-title >
+                <p class="title-search" *ngIf="!advancedSearchMode"><mat-icon fontIcon="search"></mat-icon> Avanced Search</p>
+                <p class="title-search" *ngIf="advancedSearchMode"> return to Browse Mode</p>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <section class="form-search">
+            <label class="title-food-pairing-search">Search by Food Pairing</label>
+            <input class="input-food-pairing-search" [formControl]="foodPairedInputControl" type="text" placeholder="Food Pairing">
+            <p class="pattern-search" *ngIf="advancedSearchMode">{{this.searchPattern}}</p>
+            <button class="button-food-pairing-search" mat-raised-button (click)="onSubmitSearch()">Search</button>
+        </section>
+    </mat-expansion-panel>    
+</div>
+
+

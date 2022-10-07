@@ -1,0 +1,42 @@
+.favourite-page{
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh; 
+    position: relative;
+    background-color: #424a30;
+}
+
+app-header{
+    padding: 0;
+    margin: 0;
+    width: 100vw ;
+    max-width: 100vw;
+    height: 20vh;
+    max-height: 20vh;
+}
+
+.container{
+    padding:0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+
+    app-beer-list{
+        padding: 0;
+        margin: 0;
+        width: 85vw ;
+        max-width: 85vw;
+        height: 80vh;
+        max-height: 80vh;
+    }
+    
+    app-beer-favourite{
+        padding: 0;
+        margin: 0;
+        width: 15vw ;
+        max-width: 15vw;
+        height: 80vh;
+        max-height: 80vh;
+    }
+}
