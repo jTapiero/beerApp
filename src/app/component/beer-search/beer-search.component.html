@@ -10,7 +10,7 @@
         </mat-expansion-panel-header>
         <section class="form-search">
             <label class="title-food-pairing-search">Search by Food Pairing</label>
-            <input class="input-food-pairing-search" [formControl]="foodPairedInputControl" type="text" placeholder="Food Pairing">
+            <input class="input-food-pairing-search" (keydown)="onSubmitSearch()" [formControl]="foodPairedInputControl" type="text" placeholder="Food Pairing">
             <p class="pattern-search" *ngIf="advancedSearchMode">{{this.searchPattern}}</p>
             <button class="button-food-pairing-search" mat-raised-button (click)="onSubmitSearch()">Search</button>
         </section>
