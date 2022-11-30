@@ -1,18 +1,18 @@
 
-import { Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input,OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Beer } from '@model/beer';
 import { ListBeerMode } from '@model/list-beer-mode';
 import { BeerListHandlerService } from '@service/beer-list-handler.service';
 import { PunkApiService } from '@service/punk-api.service';
 import { UserfavouritesService } from '@service/userfavourites.service';
-import { Observer } from 'rxjs';
+import { Observer, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-beer-list',
   templateUrl: './beer-list.component.html',
   styleUrls: ['./beer-list.component.scss']
 })
-export class BeerListComponent implements OnInit {
+export class BeerListComponent implements OnInit,OnDestroy {
 
   @ViewChild('divList')elem!: ElementRef;
   @Input() listBeer:Array<Beer> = [];
@@ -20,11 +20,13 @@ export class BeerListComponent implements OnInit {
 
   private pageNumber:number = 1;
   private endScroll:boolean = false;
+  private removeSubscription: Subscription = new Subscription;
+  private modeSubscription: Subscription = new Subscription;
 
   constructor( private beerListHandlerService:BeerListHandlerService,
                private punkApiService:PunkApiService,
                private userfavouritesService:UserfavouritesService ) {
-      this.beerListHandlerService.listModeEvent.subscribe((mode)=>{
+     this.modeSubscription =this.beerListHandlerService.listModeEvent.subscribe((mode)=>{
         this.modeOn = mode;
         this.listModeHandler();
       });
@@ -32,6 +34,11 @@ export class BeerListComponent implements OnInit {
 
   ngOnInit(): void {
     this.listModeHandler();
+  }
+
+  ngOnDestroy(): void {
+    this.removeSubscription.unsubscribe();
+    this.modeSubscription.unsubscribe();
   }
 
   onScroll():void{
@@ -72,7 +79,7 @@ export class BeerListComponent implements OnInit {
   }
 
   private removeBeerFromListListener():void{
-    this.userfavouritesService.removeFromListEvent.subscribe(
+    this.removeSubscription = this.userfavouritesService.removeFromListEvent.subscribe(
       (beerId:number)=>{ 
         if (this.modeOn == ListBeerMode.FAVOURITE) {
           this.removeFromList(beerId);
